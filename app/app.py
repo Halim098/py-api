@@ -8,9 +8,9 @@ def create_app():
     app = Flask(__name__)
 
     # Konfigurasi aplikasi
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///app.db')
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:AloVcVJEHnMql74B@db.vkzieerrqnszexfbckld.supabase.co:5432/postgres'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'your_secret_key')
+    app.config['JWT_SECRET_KEY'] = '198038123asldnjkasd87q3q'
 
     # Inisialisasi database
     db.init_app(app)
