@@ -1,8 +1,7 @@
 from flask import Flask
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
-from models import db
-import os
+from app.models import db
 
 def create_app():
     app = Flask(__name__)
