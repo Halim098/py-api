@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
-from app.models import db
+from models import db
 
 def create_app():
     app = Flask(__name__)
@@ -17,13 +17,15 @@ def create_app():
     JWTManager(app)
 
     # Register blueprint
-    from app.routes.auth import auth_bp
-    from app.routes.books import books_bp
-    from app.routes.orders import orders_bp
+    from routes.auth import auth_bp
+    from routes.books import books_bp
+    from routes.orders import orders_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(books_bp, url_prefix='/books')
     app.register_blueprint(orders_bp, url_prefix='/orders')
 
     return app
 
-app = create_app()
+if __name__ == "__main__":
+    app = create_app()
+    app.run(debug=True)
